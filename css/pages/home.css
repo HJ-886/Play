@@ -1,0 +1,7 @@
+/* 首页特定样式 */
+.section-solid-bg {
+    background: rgb(15, 15, 35) !important;
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+}

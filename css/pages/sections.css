@@ -1,0 +1,8 @@
+/* 通用部分样式 */
+.section-content {
+    display: none;
+}
+
+.section-content.active {
+    display: block;
+}

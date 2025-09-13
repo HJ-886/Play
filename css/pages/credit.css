@@ -1,0 +1,93 @@
+/* 信贷模块特定样式 */
+.loan-progress {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.loan-progress::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.progress-step {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-step .step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    position: relative;
+}
+
+.progress-step.active .step-icon {
+    background: linear-gradient(135deg, #3b82f6, #00d9ff);
+}
+
+.progress-step.completed .step-icon::after {
+    content: '✓';
+    color: white;
+}
+
+.loan-amount-slider {
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.loan-term-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.loan-term-option {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.loan-term-option.selected {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.repayment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.repayment-table th, .repayment-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.repayment-table th {
+    color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+    .loan-term-options {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

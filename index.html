@@ -2,312 +2,40 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>全球超级买家--智能金融平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球买家金融--智慧科技金融平台</title>
+    
+    <!-- CSS 文件 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/particles.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/components/modals.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/pages/credit.css">
+    <link rel="stylesheet" href="css/pages/sections.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            padding-bottom: 80px; /* Space for bottom navigation */
-        }
-        
-        /* Responsive Design - Mobile First Approach */
-        
-        /* Base mobile styles (320px and up) */
-        .responsive-container {
-            width: 100%;
-            max-width: 100%;
-            padding: 0 1rem;
-            margin: 0 auto;
-        }
-        
-        .responsive-grid {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: 1fr;
-        }
-        
-        .responsive-flex {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .responsive-text {
-            font-size: 0.875rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-            hyphens: auto;
-        }
-        
-        .responsive-title {
-            font-size: 1.5rem;
-            line-height: 1.3;
-            text-align: center;
-            word-wrap: break-word;
-        }
-        
-        .responsive-subtitle {
-            font-size: 1rem;
-            line-height: 1.4;
-            text-align: center;
-            word-wrap: break-word;
-        }
-        
-        .responsive-button {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            font-size: 0.875rem;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .responsive-card {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Navigation responsive */
-        .bottom-nav-responsive {
-            padding: 0.5rem 0.25rem;
-        }
-        
-        .bottom-nav-responsive span {
-            font-size: 0.7rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        /* Modal responsive */
-        .modal-responsive {
-            width: 95%;
-            max-width: 95%;
-            margin: 1rem;
-            max-height: calc(100vh - 2rem);
-            overflow-y: auto;
-            background: rgba(17, 24, 39, 0.98) !important;
-            backdrop-filter: blur(20px) !important;
-            border: 2px solid rgba(99, 102, 241, 0.3) !important;
-        }
-        
-        /* Section backgrounds - solid for clarity */
-        .section-solid-bg {
-            background: rgb(15, 15, 35) !important;
-            backdrop-filter: none !important;
-            min-height: 100vh;
-            padding-top: 5rem;
-            padding-bottom: 6rem;
-        }
-        
-        /* Tablet styles (768px and up) */
-        @media (min-width: 768px) {
-            .responsive-container {
-                padding: 0 2rem;
-                max-width: 1200px;
-            }
-            
-            .responsive-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .responsive-flex {
-                flex-direction: row;
-                gap: 1.5rem;
-            }
-            
-            .responsive-text {
-                font-size: 1rem;
-            }
-            
-            .responsive-title {
-                font-size: 2.5rem;
-            }
-            
-            .responsive-subtitle {
-                font-size: 1.25rem;
-            }
-            
-            .responsive-button {
-                width: auto;
-                min-width: 120px;
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            .responsive-card {
-                padding: 1.5rem;
-            }
-            
-            .modal-responsive {
-                width: 80%;
-                max-width: 500px;
-                margin: 2rem auto;
-            }
-        }
-        
-        /* Desktop styles (1024px and up) */
-        @media (min-width: 1024px) {
-            .responsive-container {
-                padding: 0 3rem;
-                max-width: 1400px;
-            }
-            
-            .responsive-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-            
-            .responsive-flex {
-                gap: 2rem;
-            }
-            
-            .responsive-title {
-                font-size: 3.5rem;
-            }
-            
-            .responsive-subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .responsive-button {
-                padding: 1rem 2rem;
-                font-size: 1.125rem;
-            }
-            
-            .responsive-card {
-                padding: 2rem;
-            }
-        }
-        
-        /* Large desktop styles (1440px and up) */
-        @media (min-width: 1440px) {
-            .responsive-container {
-                max-width: 1600px;
-            }
-            
-            .responsive-title {
-                font-size: 4rem;
-            }
-            
-            .responsive-subtitle {
-                font-size: 1.75rem;
-            }
-        }
-        
-        /* Prevent text overflow and ensure readability */
-        * {
-            box-sizing: border-box;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            word-wrap: break-word;
-            hyphens: auto;
-        }
-        
-        p, span, div {
-            word-wrap: break-word;
-            hyphens: auto;
-        }
-        
-        /* Ensure buttons are always clickable */
-        button, .button {
-            min-height: 44px;
-            min-width: 44px;
-            touch-action: manipulation;
-        }
-        
-        .quantum-bg {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
-        }
-        
-        .quantum-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .quantum-glow {
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-        }
-        
-        .floating-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #6366f1;
-            border-radius: 50%;
-            animation: float 6s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0px); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
-        }
-        
-        .pulse-ring {
-            animation: pulse-ring 2s infinite;
-        }
-        
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.3; }
-            100% { transform: scale(0.8); opacity: 1; }
-        }
-        
-        .slide-up {
-            animation: slideUp 0.6s ease-out;
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .logo-carousel {
-            animation: logoScroll 20s linear infinite;
-        }
-        
-        @keyframes logoScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        .logo-carousel:hover {
-            animation-play-state: paused;
-        }
-    </style>
 </head>
-<body class="quantum-bg text-white min-h-screen">
-    <!-- Floating Particles Background -->
-    <div class="floating-particles">
+<body>
+    <!-- 量子粒子背景 -->
+    <div id="particles-js"></div>
+    
+    <!-- 浮动粒子 -->
+    <div class="floating-particles" id="floating-particles">
         <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
         <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
         <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
@@ -319,8 +47,8 @@
         <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 w-full z-50 quantum-card" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
+    <!-- 导航栏 -->
+    <nav class="main-navigation" id="main-navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 min-h-16">
                 <div class="flex items-center space-x-4">
@@ -328,12 +56,12 @@
                         <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                             <span class="text-white font-bold text-sm">G</span>
                         </div>
-                        <span class="text-xl font-bold">全球买家金融</span>
+                        <span class="text-xl font-bold gradient-text">全球买家金融</span>
                     </div>
                     
-                    <!-- User Controls -->
+                    <!-- 用户控制 -->
                     <div class="relative">
-                        <button onclick="toggleUserMenu()" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800">
+                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-gray-800">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
@@ -343,7 +71,7 @@
                             </svg>
                         </button>
                         
-                        <!-- User Dropdown Menu -->
+                        <!-- 用户下拉菜单 -->
                         <div id="userDropdown" class="absolute top-full left-0 mt-2 w-48 quantum-card rounded-lg shadow-lg hidden z-50">
                             <div id="loginOptions" class="py-2">
                                 <button onclick="showLogin()" class="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700 transition-colors">
@@ -376,13 +104,14 @@
                     </div>
                 </div>
                 
-                <!-- Language Selector -->
+                <!-- 语言选择器 -->
                 <div class="flex items-center space-x-2">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                     </svg>
                     <select class="bg-gray-800 border border-gray-600 rounded-lg px-3 py-1 text-white text-sm" onchange="changeLanguage(this.value)">
                         <option value="zh">中文</option>
+                        <option value="el">Ελληνικά</option>
                         <option value="en">English</option>
                         <option value="ja">日本語</option>
                         <option value="ko">한국어</option>
@@ -393,11 +122,11 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- 主要内容 -->
     <main class="pt-16">
-        <!-- Home Section -->
-        <section id="home" class="section-content">
-            <!-- Hero Section -->
+        <!-- 首页部分 -->
+        <section id="home" class="section-content active">
+            <!-- 英雄部分 -->
             <div class="relative min-h-screen flex items-center justify-center">
                 <div class="responsive-container text-center slide-up">
                     <div class="relative inline-block mb-8">
@@ -407,7 +136,7 @@
                             </svg>
                         </div>
                     </div>
-                    <h1 class="responsive-title font-bold mb-6 bg-gradient-to-r from-white to-indigo-300 bg-clip-text text-transparent">
+                    <h1 class="responsive-title font-bold mb-6 gradient-text">
                         全球买家金融
                     </h1>
                     <p class="responsive-subtitle text-gray-300 mb-8 leading-relaxed">
@@ -425,7 +154,7 @@
                         </button>
                     </div>
                     
-                    <!-- Quick Access Features -->
+                    <!-- 快速访问功能 -->
                     <div class="flex justify-center items-center mb-8">
                         <button onclick="window.open('https://direct.lc.chat/19142914/', '_blank')" class="responsive-button flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -435,11 +164,11 @@
                         </button>
                     </div>
                     
-                    <!-- Global Shopping Platforms Logo Carousel -->
+                    <!-- 全球购物平台Logo轮播 -->
                     <div class="mt-12">
-                        <h3 class="text-lg md:text-xl text-gray-400 mb-6">携手全球知名购物平台</h3>
+                        <h3 class="text-lg md:text-xl text-gray-400 mb-6">合作全球知名购物平台</h3>
                         <div class="overflow-hidden bg-white bg-opacity-5 rounded-lg p-4">
-                            <div class="flex space-x-8 logo-carousel">
+                            <div class="logo-carousel">
                                 <!-- Amazon -->
                                 <div class="flex-shrink-0 w-24 h-12 bg-white rounded flex items-center justify-center">
                                     <span class="text-black font-bold text-lg">amazon</span>
@@ -454,7 +183,7 @@
                                 </div>
                                 <!-- Shopify -->
                                 <div class="flex-shrink-0 w-24 h-12 bg-green-600 rounded flex items-center justify-center">
-                                    <span class="text-white font-bold text-lg">Alibaba</span>
+                                    <span class="text-white font-bold text-lg">S</span>
                                 </div>
                                 <!-- Walmart -->
                                 <div class="flex-shrink-0 w-24 h-12 bg-blue-600 rounded flex items-center justify-center">
@@ -464,7 +193,7 @@
                                 <div class="flex-shrink-0 w-24 h-12 bg-orange-600 rounded flex items-center justify-center">
                                     <span class="text-white font-bold text-lg">Etsy</span>
                                 </div>
-                                <!-- Repeat for seamless loop -->
+                                <!-- 重复以实现无缝循环 -->
                                 <div class="flex-shrink-0 w-24 h-12 bg-white rounded flex items-center justify-center">
                                     <span class="text-black font-bold text-lg">amazon</span>
                                 </div>
@@ -480,9 +209,9 @@
                 </div>
             </div>
 
-            <!-- Sharing Economy Content -->
+            <!-- 分享经济内容 -->
             <div class="responsive-container py-20">
-                <h2 class="responsive-title font-bold text-center mb-16">平台分享经济</h2>
+                <h2 class="responsive-title font-bold text-center mb-16 gradient-text">平台分享经济</h2>
                 <div class="responsive-grid">
                     <div class="responsive-card quantum-card rounded-xl hover:scale-105 transition-transform">
                         <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-6 mx-auto">
@@ -521,9 +250,9 @@
                     </div>
                 </div>
                 
-                <!-- Additional Benefits Section -->
+                <!-- 额外优势部分 -->
                 <div class="mt-16 text-center">
-                    <h3 class="text-3xl font-bold mb-8">分享经济优势</h3>
+                    <h3 class="text-3xl font-bold mb-8 gradient-text">分享经济优势</h3>
                     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <div class="quantum-card rounded-xl p-6">
                             <h4 class="text-xl font-semibold mb-3 text-yellow-400">零成本创业</h4>
@@ -538,428 +267,161 @@
             </div>
         </section>
 
-        <!-- Profile Section -->
-        <section id="profile" class="section-content section-solid-bg hidden">
+        <!-- 信贷模块 -->
+        <section id="credit" class="section-content section-solid-bg">
+            <div class="responsive-container py-20">
+                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">信贷中心</h2>
+                
+                <!-- 信贷产品展示 -->
+                <div class="responsive-grid mb-16">
+                    <div class="quantum-card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold">闪电贷</h4>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">快速审批</span>
+                        </div>
+                        <div class="text-2xl font-bold text-green-400 mb-2">5.8%</div>
+                        <div class="text-gray-400 text-sm mb-4">年化利率</div>
+                        <div class="text-xs text-gray-500 mb-4">最高可借 ¥200,000 • 最快5分钟到账</div>
+                        <button onclick="applyForLoan('闪电贷')" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors">
+                            立即申请
+                        </button>
+                    </div>
+
+                    <div class="quantum-card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold">商户贷</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">商户专享</span>
+                        </div>
+                        <div class="text-2xl font-bold text-blue-400 mb-2">4.9%</div>
+                        <div class="text-gray-400 text-sm mb-4">年化利率</div>
+                        <div class="text-xs text-gray-500 mb-4">最高可借 ¥500,000 • 期限灵活</div>
+                        <button onclick="applyForLoan('商户贷')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors">
+                            立即申请
+                        </button>
+                    </div>
+
+                    <div class="quantum-card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold">消费贷</h4>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">消费分期</span>
+                        </div>
+                        <div class="text-2xl font-bold text-purple-400 mb-2">7.2%</div>
+                        <div class="text-gray-400 text-sm mb-4">年化利率</div>
+                        <div class="text-xs text-gray-500 mb-4">最高可借 ¥100,000 • 12-36期分期</div>
+                        <button onclick="applyForLoan('消费贷')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors">
+                            立即申请
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 我的贷款 -->
+                <div class="quantum-card rounded-xl p-6 mb-8">
+                    <h4 class="text-xl font-semibold mb-6">我的贷款</h4>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="text-left py-3 px-2">贷款产品</th>
+                                    <th class="text-left py-3 px-2">贷款金额</th>
+                                    <th class="text-left py-3 px-2">贷款利率</th>
+                                    <th class="text-left py-3 px-2">贷款期限</th>
+                                    <th class="text-left py-3 px-2">状态</th>
+                                    <th class="text-left py-3 px-2">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="loanList">
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-2">闪电贷</td>
+                                    <td class="py-3 px-2">¥50,000</td>
+                                    <td class="py-3 px-2">5.8%</td>
+                                    <td class="py-3 px-2">12个月</td>
+                                    <td class="py-3 px-2"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">还款中</span></td>
+                                    <td class="py-3 px-2">
+                                        <button onclick="viewLoanDetails(1)" class="text-blue-400 hover:text-blue-300 text-sm">查看</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-800">
+                                    <td class="py-3 px-2">消费贷</td>
+                                    <td class="py-3 px-2">¥20,000</td>
+                                    <td class="py-3 px-2">7.2%</td>
+                                    <td class="py-3 px-2">24个月</td>
+                                    <td class="py-3 px-2"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">还款中</span></td>
+                                    <td class="py-3 px-2">
+                                        <button onclick="viewLoanDetails(2)" class="text-blue-400 hover:text-blue-300 text-sm">查看</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 贷款申请进度 -->
+                <div class="quantum-card rounded-xl p-6">
+                    <h4 class="text-xl font-semibold mb-6">贷款申请进度</h4>
+                    
+                    <div class="loan-progress">
+                        <div class="progress-step completed">
+                            <div class="step-icon"></div>
+                            <div class="text-xs">提交申请</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-icon"></div>
+                            <div class="text-xs">资料审核</div>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="step-icon"></div>
+                            <div class="text-xs">信用评估</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-icon"></div>
+                            <div class="text-xs">审批通过</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-icon"></div>
+                            <div class="text-xs">放款成功</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-8">
+                        <p class="text-gray-400">当前状态：信用评估中</p>
+                        <p class="text-sm text-gray-500 mt-2">预计完成时间：2024-01-25</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 其他部分 -->
+        <section id="profile" class="section-content section-solid-bg">
             <div class="responsive-container py-20">
                 <h2 class="text-4xl font-bold text-center mb-16">个人中心</h2>
-                
-                <div class="quantum-card rounded-xl p-8 mb-8">
-                    <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="w-24 h-24 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                            <span class="text-2xl font-bold">张</span>
-                        </div>
-                        <div class="text-center md:text-left">
-                            <h3 class="text-2xl font-bold mb-2">张三</h3>
-                            <p class="text-gray-400 mb-2">VIP会员 | ID: QD2024001</p>
-                            <p class="text-sm text-gray-500">注册时间: 2024-01-15</p>
-                        </div>
-                        <div class="ml-auto">
-                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                编辑资料
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="quantum-card rounded-xl p-6">
-                        <h4 class="text-xl font-semibold mb-4">账户信息</h4>
-                        <div class="space-y-4">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">手机号码</span>
-                                <span>138****8888</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">邮箱地址</span>
-                                <span>zhang***@email.com</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">实名状态</span>
-                                <span class="text-green-400">已认证</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">安全等级</span>
-                                <span class="text-yellow-400">高级</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <h4 class="text-xl font-semibold mb-4">统计数据</h4>
-                        <div class="space-y-4">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">累计收益</span>
-                                <span class="text-green-400">+¥12,580</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">完成任务</span>
-                                <span>156个</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">活跃天数</span>
-                                <span>89天</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">信用评分</span>
-                                <span class="text-blue-400">AAA</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Identity Verification Section -->
-                <div class="quantum-card rounded-xl p-6 mb-8">
-                    <div class="flex items-center justify-between mb-6">
-                        <h4 class="text-xl font-semibold">实名认证</h4>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">已认证</span>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-4">
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">真实姓名</span>
-                                <span>张三</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">身份证号</span>
-                                <span>110***********1234</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-400">认证时间</span>
-                                <span>2024-01-15</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <button class="bg-gray-600 text-white px-6 py-2 rounded-lg cursor-not-allowed" disabled>
-                                已完成认证
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wallet Management Section -->
-                <div class="quantum-card rounded-xl p-6">
-                    <h4 class="text-xl font-semibold mb-6">钱包管理</h4>
-                    
-                    <!-- Bank Cards -->
-                    <div class="mb-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <h5 class="text-lg font-medium">银行卡管理</h5>
-                            <button onclick="openAddBankCardModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
-                                + 添加银行卡
-                            </button>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">工行</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium">中国工商银行</div>
-                                        <div class="text-gray-400 text-sm">****1234</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">默认</span>
-                                    <button class="text-red-400 hover:text-red-300 text-sm">删除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Crypto Wallets -->
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h5 class="text-lg font-medium">加密货币钱包</h5>
-                            <button onclick="openAddWalletModal()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
-                                + 绑定钱包
-                            </button>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-8 bg-gradient-to-r from-orange-500 to-orange-700 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">₿</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium">Bitcoin 钱包</div>
-                                        <div class="text-gray-400 text-sm">bc1q...xyz123</div>
-                                    </div>
-                                </div>
-                                <button class="text-red-400 hover:text-red-300 text-sm">解绑</button>
-                            </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-8 bg-gradient-to-r from-blue-500 to-blue-700 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">Ξ</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium">Ethereum 钱包</div>
-                                        <div class="text-gray-400 text-sm">0x...abc789</div>
-                                    </div>
-                                </div>
-                                <button class="text-red-400 hover:text-red-300 text-sm">解绑</button>
-                            </div>
-                            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
-                                <div class="flex items-center space-x-4">
-                                    <div class="w-12 h-8 bg-gradient-to-r from-green-500 to-green-700 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">₮</span>
-                                    </div>
-                                    <div>
-                                        <div class="font-medium">USDT 钱包</div>
-                                        <div class="text-gray-400 text-sm">TRC20 地址</div>
-                                    </div>
-                                </div>
-                                <button class="text-red-400 hover:text-red-300 text-sm">解绑</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <p class="text-gray-400">个人中心功能开发中，敬请期待！</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tasks Section -->
-        <section id="tasks" class="section-content section-solid-bg hidden">
+        <section id="tasks" class="section-content section-solid-bg">
             <div class="responsive-container py-20">
                 <h2 class="text-4xl font-bold text-center mb-16">任务中心</h2>
-                
-                <!-- Task Stats -->
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="quantum-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-green-400 mb-2">12</div>
-                        <div class="text-gray-400">今日可做任务</div>
-                    </div>
-                    <div class="quantum-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-blue-400 mb-2">8</div>
-                        <div class="text-gray-400">已完成任务</div>
-                    </div>
-                    <div class="quantum-card rounded-xl p-6 text-center">
-                        <div class="text-3xl font-bold text-yellow-400 mb-2">¥580</div>
-                        <div class="text-gray-400">今日收益</div>
-                    </div>
-                </div>
-
-                <!-- Task Progress Button -->
-                <div class="text-center mb-8">
-                    <button onclick="openTaskProgressModal()" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
-                        📊 任务进度查询
-                    </button>
-                </div>
-
-                <!-- Task List -->
-                <div class="space-y-6">
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold">商场推广</h4>
-                                    <p class="text-gray-400 text-sm">推广商城产品获得佣金</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <span class="text-yellow-400 font-semibold">+¥150</span>
-                                <button onclick="openMallPromotionModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                    立即完成
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold">投资体验</h4>
-                                    <p class="text-gray-400 text-sm">完成模拟投资获得奖励</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <span class="text-yellow-400 font-semibold">+¥300</span>
-                                <button onclick="completeTask(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                    立即完成
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold">每日签到</h4>
-                                    <p class="text-gray-400 text-sm">连续签到获得额外奖励</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <span class="text-yellow-400 font-semibold">+¥50</span>
-                                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                    已完成
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold">分享邀请</h4>
-                                    <p class="text-gray-400 text-sm">邀请好友注册获得奖励</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <span class="text-yellow-400 font-semibold">+¥200</span>
-                                <button onclick="openReferralModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                    立即完成
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <p class="text-gray-400">任务中心功能开发中，敬请期待！</p>
                 </div>
             </div>
         </section>
 
-        <!-- Wealth Section -->
-        <section id="wealth" class="section-content section-solid-bg hidden">
+        <section id="wealth" class="section-content section-solid-bg">
             <div class="responsive-container py-20">
                 <h2 class="text-4xl font-bold text-center mb-16">财富中心</h2>
-                
-                <!-- Wealth Overview -->
-                <div class="quantum-card rounded-xl p-8 mb-12">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-semibold mb-4">总资产</h3>
-                        <div class="text-5xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-2">
-                            ¥128,580.00
-                        </div>
-                        <div class="text-green-400 text-lg">
-                            +¥2,580.00 (+2.05%) 今日收益
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-4 gap-6">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-400 mb-1">¥85,200</div>
-                            <div class="text-gray-400 text-sm">可用余额</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-400 mb-1">¥32,580</div>
-                            <div class="text-gray-400 text-sm">投资收益</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-400 mb-1">¥8,800</div>
-                            <div class="text-gray-400 text-sm">冻结资金</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-yellow-400 mb-1">¥2,000</div>
-                            <div class="text-gray-400 text-sm">待结算</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Investment Products -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold">外汇期权</h4>
-                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">中风险</span>
-                        </div>
-                        <div class="text-2xl font-bold text-blue-400 mb-2">15.8%</div>
-                        <div class="text-gray-400 text-sm mb-4">预期年化收益率</div>
-                        <div class="text-xs text-gray-500 mb-4">USD/EUR • GBP/JPY • 多币种对冲</div>
-                        <button onclick="investProduct('外汇期权')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors">
-                            立即投资
-                        </button>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold">加密货币期权</h4>
-                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">高风险</span>
-                        </div>
-                        <div class="text-2xl font-bold text-purple-400 mb-2">28.5%</div>
-                        <div class="text-gray-400 text-sm mb-4">预期年化收益率</div>
-                        <div class="text-xs text-gray-500 mb-4">BTC • ETH • BNB • 智能合约</div>
-                        <button onclick="investProduct('加密货币期权')" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors">
-                            立即投资
-                        </button>
-                    </div>
-
-                    <div class="quantum-card rounded-xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold">AI矿机租赁</h4>
-                            <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">稳定收益</span>
-                        </div>
-                        <div class="text-2xl font-bold text-orange-400 mb-2">12.8%</div>
-                        <div class="text-gray-400 text-sm mb-4">年化收益率</div>
-                        <div class="text-xs text-gray-500 mb-4">云算力 • 智能调度 • 24h运行</div>
-                        <button onclick="investProduct('AI矿机租赁')" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 rounded-lg transition-colors">
-                            立即投资
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Recent Transactions -->
-                <div class="quantum-card rounded-xl p-6">
-                    <h4 class="text-xl font-semibold mb-6">最近交易</h4>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
-                            <div>
-                                <div class="font-semibold">稳健理财投资</div>
-                                <div class="text-gray-400 text-sm">2024-01-20 14:30</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-red-400">-¥10,000</div>
-                                <div class="text-gray-400 text-sm">投资</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-gray-700">
-                            <div>
-                                <div class="font-semibold">任务奖励</div>
-                                <div class="text-gray-400 text-sm">2024-01-20 10:15</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-green-400">+¥580</div>
-                                <div class="text-gray-400 text-sm">收入</div>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center py-3">
-                            <div>
-                                <div class="font-semibold">推广佣金</div>
-                                <div class="text-gray-400 text-sm">2024-01-19 16:45</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-green-400">+¥200</div>
-                                <div class="text-gray-400 text-sm">收入</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center">
+                    <p class="text-gray-400">财富中心功能开发中，敬请期待！</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-700 z-50">
+    <!-- 底部导航 -->
+    <nav class="bottom-navigation" id="bottom-navigation">
         <div class="flex justify-around items-center py-2">
             <button onclick="showSection('home')" class="bottom-nav-btn bottom-nav-responsive flex flex-col items-center text-white hover:text-indigo-400 transition-colors">
                 <svg class="w-5 h-5 md:w-6 md:h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -979,14 +441,12 @@
                 </svg>
                 <span>财富中心</span>
             </button>
-            <button onclick="showSection('xindai')" class="bottom-nav-btn bottom-nav-responsive flex flex-col items-center text-white hover:text-indigo-400 transition-colors">
+            <button onclick="showSection('credit')" class="bottom-nav-btn bottom-nav-responsive flex flex-col items-center text-white hover:text-indigo-400 transition-colors">
                 <svg class="w-5 h-5 md:w-6 md:h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                 </svg>
                 <span>信贷中心</span>
             </button>
-
-
             <button onclick="showSection('profile')" class="bottom-nav-btn bottom-nav-responsive flex flex-col items-center text-white hover:text-indigo-400 transition-colors">
                 <svg class="w-5 h-5 md:w-6 md:h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -996,154 +456,12 @@
         </div>
     </nav>
 
-    <!-- Investment Modal -->
-    <div id="investModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card modal-responsive rounded-xl p-6 md:p-8">
-            <h3 class="text-2xl font-bold mb-6" id="modalTitle">投资确认</h3>
-            <div class="mb-6">
-                <label class="block text-gray-400 text-sm mb-2">投资金额</label>
-                <input type="number" id="investAmount" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入投资金额" min="1000">
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="closeInvestModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                    取消
-                </button>
-                <button onclick="confirmInvestment()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
-                    确认投资
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Deposit Modal -->
-    <div id="depositModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card modal-responsive rounded-xl p-6 md:p-8">
-            <h3 class="text-2xl font-bold mb-6">存款</h3>
-            <div class="mb-6">
-                <label class="block text-gray-400 text-sm mb-2">存款金额</label>
-                <input type="number" id="depositAmount" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入存款金额" min="100">
-            </div>
-            <div class="mb-6">
-                <label class="block text-gray-400 text-sm mb-2">支付方式</label>
-                <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                    <option>银行卡转账</option>
-                    <option>微信支付</option>
-                    <option>支付宝</option>
-                </select>
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="closeDepositModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                    取消
-                </button>
-                <button onclick="confirmDeposit()" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition-colors">
-                    确认存款
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Withdraw Modal -->
-    <div id="withdrawModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card modal-responsive rounded-xl p-6 md:p-8">
-            <h3 class="text-2xl font-bold mb-6">取款</h3>
-            <div class="mb-6">
-                <label class="block text-gray-400 text-sm mb-2">取款金额</label>
-                <input type="number" id="withdrawAmount" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入取款金额" min="100">
-            </div>
-            <div class="mb-6">
-                <label class="block text-gray-400 text-sm mb-2">提款方式</label>
-                <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                    <option>中国工商银行 ****1234</option>
-                    <option>微信支付</option>
-                    <option>支付宝</option>
-                </select>
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="closeWithdrawModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                    取消
-                </button>
-                <button onclick="confirmWithdraw()" class="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-lg transition-colors">
-                    确认取款
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Add Bank Card Modal -->
-    <div id="addBankCardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card modal-responsive rounded-xl p-6 md:p-8">
-            <h3 class="responsive-title font-bold mb-6">添加银行卡</h3>
-            <div class="space-y-4 mb-6">
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">银行名称</label>
-                    <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                        <option>中国工商银行</option>
-                        <option>中国建设银行</option>
-                        <option>中国农业银行</option>
-                        <option>中国银行</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">卡号</label>
-                    <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入银行卡号">
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">持卡人姓名</label>
-                    <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入持卡人姓名">
-                </div>
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="closeAddBankCardModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                    取消
-                </button>
-                <button onclick="confirmAddBankCard()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
-                    添加
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Add Crypto Wallet Modal -->
-    <div id="addWalletModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card rounded-xl p-8 max-w-md w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
-            <h3 class="text-2xl font-bold mb-6">绑定加密货币钱包</h3>
-            <div class="space-y-4 mb-6">
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">加密货币类型</label>
-                    <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white">
-                        <option>Bitcoin (BTC)</option>
-                        <option>Ethereum (ETH)</option>
-                        <option>USDT (TRC20)</option>
-                        <option>USDT (ERC20)</option>
-                        <option>Binance Coin (BNB)</option>
-                        <option>Litecoin (LTC)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">钱包地址</label>
-                    <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入加密货币钱包地址">
-                </div>
-                <div class="text-sm text-gray-400">
-                    <p>⚠️ 请确保钱包地址正确，错误的地址可能导致资产丢失</p>
-                </div>
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="closeAddWalletModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                    取消
-                </button>
-                <button onclick="confirmAddWallet()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors">
-                    绑定
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Registration Modal -->
-    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <!-- 贷款申请模态框 -->
+    <div id="loan-application-modal" class="modal">
         <div class="quantum-card rounded-xl p-8 max-w-md w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold">用户注册</h3>
-                <button onclick="closeRegisterModal()" class="text-gray-400 hover:text-white">
+                <h3 class="text-2xl font-bold" id="loanModalTitle">贷款申请</h3>
+                <button onclick="closeLoanApplicationModal()" class="text-gray-400 hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -1151,1024 +469,73 @@
             </div>
             <form class="space-y-4">
                 <div>
-                    <label class="block text-gray-400 text-sm mb-2">用户名 *</label>
-                    <input type="text" id="regUsername" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入用户名" required>
+                    <label class="block text-gray-400 text-sm mb-2">贷款产品</label>
+                    <input type="text" id="loanProduct" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-300" readonly>
                 </div>
                 <div>
-                    <label class="block text-gray-400 text-sm mb-2">证件类型 *</label>
-                    <select id="regIdType" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" required>
-                        <option value="">请选择证件类型</option>
-                        <option value="ID">身份证 (ID)</option>
-                        <option value="PASSPORT">护照 (Passport)</option>
+                    <label class="block text-gray-400 text-sm mb-2">贷款金额 (¥)</label>
+                    <input type="range" id="loanAmount" class="w-full loan-amount-slider" min="1000" max="100000" step="1000" value="50000">
+                    <div class="flex justify-between text-sm text-gray-400">
+                        <span>1,000</span>
+                        <span id="loanAmountValue">50,000</span>
+                        <span>100,000</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-400 text-sm mb-2">贷款期限</label>
+                    <div class="loan-term-options">
+                        <div class="loan-term-option" data-months="3">3个月</div>
+                        <div class="loan-term-option selected" data-months="6">6个月</div>
+                        <div class="loan-term-option" data-months="12">12个月</div>
+                        <div class="loan-term-option" data-months="24">24个月</div>
+                        <div class="loan-term-option" data-months="36">36个月</div>
+                        <div class="loan-term-option" data-months="60">60个月</div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-400 text-sm mb-2">还款方式</label>
+                    <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white">
+                        <option>等额本息</option>
+                        <option>等额本金</option>
+                        <option>先息后本</option>
                     </select>
                 </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">用户密码 *</label>
-                    <input type="password" id="regPassword" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入密码" required>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">确认密码 *</label>
-                    <input type="password" id="regConfirmPassword" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请再次输入密码" required>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">电子邮箱 *</label>
-                    <input type="email" id="regEmail" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入邮箱地址" required>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">推介码 (可选)</label>
-                    <input type="text" id="regReferralCode" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入推介码（可选）">
+                <div class="bg-gray-800 rounded-lg p-4 mt-4">
+                    <h4 class="text-lg font-semibold mb-2">贷款详情</h4>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-gray-400">月还款额</span>
+                        <span id="monthlyPayment">¥4,310.00</span>
+                    </div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-gray-400">总利息</span>
+                        <span id="totalInterest">¥1,720.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">总还款额</span>
+                        <span id="totalPayment">¥51,720.00</span>
+                    </div>
                 </div>
                 <div class="flex space-x-4 pt-4">
-                    <button type="button" onclick="closeRegisterModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                        关闭
+                    <button type="button" onclick="closeLoanApplicationModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
+                        取消
                     </button>
-                    <button type="button" onclick="submitRegistration()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
-                        提交
+                    <button type="button" onclick="submitLoanApplication()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
+                        提交申请
                     </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Mall Promotion Task Modal -->
-    <div id="mallPromotionModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card rounded-xl p-8 max-w-md w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold">商城推广任务</h3>
-                <button onclick="closeMallPromotionModal()" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <form class="space-y-4">
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">任务编号</label>
-                    <input type="text" id="taskNumber" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-300" value="MP2024012001" readonly>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">商城名 *</label>
-                    <select id="mallName" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" required>
-                        <option value="">请选择商城</option>
-                        <option value="Amazon">Amazon</option>
-                        <option value="eBay">eBay</option>
-                        <option value="AliExpress">AliExpress</option>
-                        <option value="Shopify">Shopify</option>
-                        <option value="Walmart">Walmart</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">商品名 *</label>
-                    <input type="text" id="productName" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入商品名称" required>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">价格 *</label>
-                    <input type="number" id="productPrice" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="请输入商品价格" step="0.01" required>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">推介指数 *</label>
-                    <select id="promotionIndex" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" required>
-                        <option value="">请选择推介指数</option>
-                        <option value="1">⭐ 1星 - 基础推广</option>
-                        <option value="2">⭐⭐ 2星 - 一般推广</option>
-                        <option value="3">⭐⭐⭐ 3星 - 优质推广</option>
-                        <option value="4">⭐⭐⭐⭐ 4星 - 热门推广</option>
-                        <option value="5">⭐⭐⭐⭐⭐ 5星 - 顶级推广</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">购买凭证上传 *</label>
-                    <input type="file" id="purchaseProof" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" accept="image/*,.pdf" required>
-                    <p class="text-xs text-gray-500 mt-1">支持图片格式或PDF文件</p>
-                </div>
-                <div class="flex space-x-4 pt-4">
-                    <button type="button" onclick="closeMallPromotionModal()" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded-lg transition-colors">
-                        关闭
-                    </button>
-                    <button type="button" onclick="submitMallPromotion()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
-                        提交
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Task Progress Modal -->
-    <div id="taskProgressModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card rounded-xl p-8 max-w-4xl w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold">任务进度查询</h3>
-                <button onclick="closeTaskProgressModal()" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="border-b border-gray-700">
-                            <th class="text-left py-3 px-2">任务序号</th>
-                            <th class="text-left py-3 px-2">任务类型</th>
-                            <th class="text-left py-3 px-2">商场名</th>
-                            <th class="text-left py-3 px-2">推介指数</th>
-                            <th class="text-left py-3 px-2">买家奖励</th>
-                            <th class="text-left py-3 px-2">审核状态</th>
-                        </tr>
-                    </thead>
-                    <tbody id="taskProgressTable">
-                        <tr class="border-b border-gray-800">
-                            <td class="py-3 px-2">MP2024012001</td>
-                            <td class="py-3 px-2">商城推广</td>
-                            <td class="py-3 px-2">Amazon</td>
-                            <td class="py-3 px-2">⭐⭐⭐⭐</td>
-                            <td class="py-3 px-2 text-green-400">¥150</td>
-                            <td class="py-3 px-2"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">通过</span></td>
-                        </tr>
-                        <tr class="border-b border-gray-800">
-                            <td class="py-3 px-2">MP2024012002</td>
-                            <td class="py-3 px-2">商城推广</td>
-                            <td class="py-3 px-2">eBay</td>
-                            <td class="py-3 px-2">⭐⭐⭐</td>
-                            <td class="py-3 px-2 text-green-400">¥120</td>
-                            <td class="py-3 px-2"><span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">审核中</span></td>
-                        </tr>
-                        <tr class="border-b border-gray-800">
-                            <td class="py-3 px-2">MP2024012003</td>
-                            <td class="py-3 px-2">投资体验</td>
-                            <td class="py-3 px-2">-</td>
-                            <td class="py-3 px-2">⭐⭐⭐⭐⭐</td>
-                            <td class="py-3 px-2 text-green-400">¥300</td>
-                            <td class="py-3 px-2"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">通过</span></td>
-                        </tr>
-                        <tr class="border-b border-gray-800">
-                            <td class="py-3 px-2">MP2024012004</td>
-                            <td class="py-3 px-2">商城推广</td>
-                            <td class="py-3 px-2">AliExpress</td>
-                            <td class="py-3 px-2">⭐⭐</td>
-                            <td class="py-3 px-2 text-red-400">¥0</td>
-                            <td class="py-3 px-2"><span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">拒绝</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Referral Modal -->
-    <div id="referralModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card rounded-xl p-8 max-w-md w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold">邀请好友注册</h3>
-                <button onclick="closeReferralModal()" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">您的邀请码</label>
-                    <div class="flex items-center space-x-2">
-                        <input type="text" id="referralCode" class="flex-1 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" value="QD2024001" readonly>
-                        <button onclick="copyReferralCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                            复制
-                        </button>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-gray-400 text-sm mb-2">邀请链接</label>
-                    <div class="flex items-center space-x-2">
-                        <input type="text" id="referralLink" class="flex-1 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white text-xs" value="https://globalbuyer.finance/register?ref=QD2024001" readonly>
-                        <button onclick="copyReferralLink()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
-                            复制
-                        </button>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <label class="block text-gray-400 text-sm mb-4">邀请二维码</label>
-                    <div class="bg-white p-4 rounded-lg inline-block">
-                        <div class="w-32 h-32 bg-black flex items-center justify-center text-white text-xs">
-                            QR Code
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">扫描二维码快速注册</p>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4">
-                    <h4 class="text-lg font-semibold mb-2 text-yellow-400">邀请奖励</h4>
-                    <ul class="text-sm text-gray-300 space-y-1">
-                        <li>• 每邀请1位好友注册：¥50奖励</li>
-                        <li>• 好友完成首次任务：额外¥100奖励</li>
-                        <li>• 好友投资收益分成：5%永久分成</li>
-                    </ul>
-                </div>
-                <div class="flex space-x-4">
-                    <button onclick="shareReferral()" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition-colors">
-                        分享
-                    </button>
-                    <button onclick="copyReferralLink()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg transition-colors">
-                        复制链接
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Customer Service Modal -->
-    <div id="customerServiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="quantum-card rounded-xl p-8 max-w-lg w-full mx-4 mobile-form" style="max-height: calc(100vh - 120px); overflow-y: auto; margin-top: 80px; margin-bottom: 100px;">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold">在线客服</h3>
-                <button onclick="closeCustomerService()" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 h-64 overflow-y-auto mb-4">
-                <div class="space-y-4">
-                    <div class="flex items-start space-x-3">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span class="text-white text-sm">客</span>
-                        </div>
-                        <div class="bg-gray-700 rounded-lg p-3 max-w-xs">
-                            <p class="text-sm">您好！欢迎使用全球买家金融平台，有什么可以帮助您的吗？</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex space-x-2">
-                <input type="text" class="flex-1 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-white" placeholder="输入您的问题...">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                    发送
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let currentSection = 'home';
-        let currentProduct = '';
-
-        function showSection(section) {
-            // Hide all sections
-            document.querySelectorAll('.section-content').forEach(el => {
-                el.classList.add('hidden');
-            });
-            
-            // Show selected section
-            document.getElementById(section).classList.remove('hidden');
-            document.getElementById(section).classList.add('slide-up');
-            
-            // Update bottom navigation
-            document.querySelectorAll('.bottom-nav-btn').forEach(btn => {
-                btn.classList.remove('text-indigo-400');
-                btn.classList.add('text-white');
-            });
-            
-            // Highlight active bottom nav button
-            const activeBtn = document.querySelector(`[onclick="showSection('${section}')"]`);
-            if (activeBtn && activeBtn.classList.contains('bottom-nav-btn')) {
-                activeBtn.classList.remove('text-white');
-                activeBtn.classList.add('text-indigo-400');
-            }
-            
-            currentSection = section;
-        }
-
-
-
-        function completeTask(button) {
-            button.textContent = '已完成';
-            button.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
-            button.classList.add('bg-green-600', 'hover:bg-green-700');
-            button.disabled = true;
-            
-            // Add completion animation
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 150);
-        }
-
-        function investProduct(productName) {
-            currentProduct = productName;
-            document.getElementById('modalTitle').textContent = `投资 ${productName}`;
-            document.getElementById('investModal').classList.remove('hidden');
-            document.getElementById('investModal').classList.add('flex');
-        }
-
-        function closeInvestModal() {
-            document.getElementById('investModal').classList.add('hidden');
-            document.getElementById('investModal').classList.remove('flex');
-            document.getElementById('investAmount').value = '';
-        }
-
-        function confirmInvestment() {
-            const amount = document.getElementById('investAmount').value;
-            if (amount && amount >= 1000) {
-                alert(`成功投资 ${currentProduct} ¥${amount}！`);
-                closeInvestModal();
-            } else {
-                alert('投资金额不能少于¥1,000');
-            }
-        }
-
-        // Deposit functions
-        function openDepositModal() {
-            document.getElementById('depositModal').classList.remove('hidden');
-            document.getElementById('depositModal').classList.add('flex');
-        }
-
-        function closeDepositModal() {
-            document.getElementById('depositModal').classList.add('hidden');
-            document.getElementById('depositModal').classList.remove('flex');
-            document.getElementById('depositAmount').value = '';
-        }
-
-        function confirmDeposit() {
-            const amount = document.getElementById('depositAmount').value;
-            if (amount && amount >= 100) {
-                alert(`存款申请已提交！金额：¥${amount}`);
-                closeDepositModal();
-            } else {
-                alert('存款金额不能少于¥100');
-            }
-        }
-
-        // Withdraw functions
-        function openWithdrawModal() {
-            document.getElementById('withdrawModal').classList.remove('hidden');
-            document.getElementById('withdrawModal').classList.add('flex');
-        }
-
-        function closeWithdrawModal() {
-            document.getElementById('withdrawModal').classList.add('hidden');
-            document.getElementById('withdrawModal').classList.remove('flex');
-            document.getElementById('withdrawAmount').value = '';
-        }
-
-        function confirmWithdraw() {
-            const amount = document.getElementById('withdrawAmount').value;
-            if (amount && amount >= 100) {
-                alert(`取款申请已提交！金额：¥${amount}，预计1-3个工作日到账`);
-                closeWithdrawModal();
-            } else {
-                alert('取款金额不能少于¥100');
-            }
-        }
-
-        // Bank card functions
-        function openAddBankCardModal() {
-            document.getElementById('addBankCardModal').classList.remove('hidden');
-            document.getElementById('addBankCardModal').classList.add('flex');
-        }
-
-        function closeAddBankCardModal() {
-            document.getElementById('addBankCardModal').classList.add('hidden');
-            document.getElementById('addBankCardModal').classList.remove('flex');
-        }
-
-        function confirmAddBankCard() {
-            alert('银行卡添加成功！');
-            closeAddBankCardModal();
-        }
-
-        // Wallet functions
-        function openAddWalletModal() {
-            document.getElementById('addWalletModal').classList.remove('hidden');
-            document.getElementById('addWalletModal').classList.add('flex');
-        }
-
-        function closeAddWalletModal() {
-            document.getElementById('addWalletModal').classList.add('hidden');
-            document.getElementById('addWalletModal').classList.remove('flex');
-        }
-
-        function confirmAddWallet() {
-            alert('数字钱包绑定成功！');
-            closeAddWalletModal();
-        }
-
-        // Customer service functions
-        function openCustomerService() {
-            document.getElementById('customerServiceModal').classList.remove('hidden');
-            document.getElementById('customerServiceModal').classList.add('flex');
-        }
-
-        function closeCustomerService() {
-            document.getElementById('customerServiceModal').classList.add('hidden');
-            document.getElementById('customerServiceModal').classList.remove('flex');
-        }
-
-        let currentLanguage = 'zh'; // Default to Chinese
-
-        // Language translations
-        const translations = {
-            zh: {
-                // Navigation
-                login: '登录',
-                register: '注册账户',
-                loginAccount: '登录账户',
-                registerAccount: '注册账户',
-                personalCenter: '个人中心',
-                myWealth: '我的财富',
-                accountSettings: '账户设置',
-                logout: '退出登录',
-                
-                // Main sections
-                home: '首页',
-                taskCenter: '任务中心',
-                wealthCenter: '财富中心',
-                xindai:'信贷中心',
-                profile: '个人中心',
-                
-                // Hero section
-                heroTitle: '全球买家金融',
-                heroSubtitle: '智能科技，玩转全球购，让推广和分享的流量变现',
-                startExperience: '开始体验',
-                deposit: '存款',
-                withdraw: '取款',
-                onlineService: '在线客服',
-                
-                // Platform features
-                platformEconomy: '平台分享经济',
-                trafficMonetization: '流量变现',
-                trafficDesc: '通过分享全球购物平台商品，将您的社交流量转化为真实收益。每一次分享都是财富增长的机会。',
-                promotionCommission: '推广分成',
-                promotionDesc: '建立您的推广网络，邀请朋友加入平台。每位成功邀请的用户都将为您带来持续的分成收益。',
-                smartMatching: '智能匹配',
-                smartDesc: 'AI智能算法精准匹配用户需求与商品，提高转化率，让每一次推广都更有价值，收益最大化。',
-                
-                // Tasks
-                todayTasks: '今日可做任务',
-                completedTasks: '已完成任务',
-                todayEarnings: '今日收益',
-                taskProgress: '任务进度查询',
-                mallPromotion: '商场推广',
-                mallPromotionDesc: '推广商城产品获得佣金',
-                investmentExp: '投资体验',
-                investmentDesc: '完成模拟投资获得奖励',
-                dailyCheckin: '每日签到',
-                checkinDesc: '连续签到获得额外奖励',
-                inviteFriends: '分享邀请',
-                inviteDesc: '邀请好友注册获得奖励',
-                completeNow: '立即完成',
-                completed: '已完成',
-                
-                // Wealth
-                totalAssets: '总资产',
-                todayProfit: '今日收益',
-                availableBalance: '可用余额',
-                investmentReturn: '投资收益',
-                frozenFunds: '冻结资金',
-                pendingSettlement: '待结算',
-                
-                // Buttons
-                submit: '提交',
-                close: '关闭',
-                cancel: '取消',
-                confirm: '确认',
-                copy: '复制',
-                share: '分享',
-                
-                // Forms
-                username: '用户名',
-                password: '用户密码',
-                confirmPassword: '确认密码',
-                email: '电子邮箱',
-                referralCode: '推介码',
-                optional: '可选',
-                required: '必填',
-                
-                // Messages
-                loginSuccess: '登录成功！',
-                registerSuccess: '注册成功！',
-                taskSubmitted: '任务提交成功！',
-                copied: '已复制到剪贴板！',
-                languageChanged: '语言已切换为中文'
-            },
-            el: {
-                // Navigation
-                login: 'Σύνδεση',
-                register: 'Εγγραφή Λογαριασμού',
-                loginAccount: 'Σύνδεση Λογαριασμού',
-                registerAccount: 'Εγγραφή Λογαριασμού',
-                personalCenter: 'Προσωπικό Κέντρο',
-                myWealth: 'Ο Πλούτος μου',
-                accountSettings: 'Ρυθμίσεις Λογαριασμού',
-                logout: 'Αποσύνδεση',
-                
-                // Main sections
-                home: 'Αρχική',
-                taskCenter: 'Κέντρο Εργασιών',
-                wealthCenter: 'Κέντρο Πλούτου',
-                profile: 'Προφίλ',
-                
-                // Hero section
-                heroTitle: 'Παγκόσμια Χρηματοδότηση Αγοραστών',
-                heroSubtitle: 'Έξυπνη τεχνολογία, παγκόσμιες αγορές, μετατροπή κίνησης σε κέρδη',
-                startExperience: 'Ξεκινήστε την Εμπειρία',
-                deposit: 'Κατάθεση',
-                withdraw: 'Ανάληψη',
-                onlineService: 'Διαδικτυακή Υπηρεσία',
-                
-                // Platform features
-                platformEconomy: 'Οικονομία Κοινής Χρήσης Πλατφόρμας',
-                trafficMonetization: 'Μονετοποίηση Κίνησης',
-                trafficDesc: 'Μετατρέψτε την κοινωνική σας κίνηση σε πραγματικά κέρδη μοιράζοντας προϊόντα από παγκόσμιες πλατφόρμες αγορών.',
-                promotionCommission: 'Προμήθεια Προώθησης',
-                promotionDesc: 'Δημιουργήστε το δίκτυο προώθησής σας, προσκαλέστε φίλους να συμμετάσχουν στην πλατφόρμα.',
-                smartMatching: 'Έξυπνη Αντιστοίχιση',
-                smartDesc: 'Αλγόριθμοι AI αντιστοιχίζουν με ακρίβεια τις ανάγκες των χρηστών με τα προϊόντα.',
-                
-                // Tasks
-                todayTasks: 'Σημερινές Εργασίες',
-                completedTasks: 'Ολοκληρωμένες Εργασίες',
-                todayEarnings: 'Σημερινά Κέρδη',
-                taskProgress: 'Πρόοδος Εργασιών',
-                mallPromotion: 'Προώθηση Καταστήματος',
-                mallPromotionDesc: 'Προωθήστε προϊόντα καταστημάτων για προμήθεια',
-                investmentExp: 'Επενδυτική Εμπειρία',
-                investmentDesc: 'Ολοκληρώστε προσομοιωμένες επενδύσεις για ανταμοιβές',
-                dailyCheckin: 'Ημερήσια Παρουσία',
-                checkinDesc: 'Συνεχής παρουσία για επιπλέον ανταμοιβές',
-                inviteFriends: 'Πρόσκληση Φίλων',
-                inviteDesc: 'Προσκαλέστε φίλους για εγγραφή και κερδίστε ανταμοιβές',
-                completeNow: 'Ολοκλήρωση Τώρα',
-                completed: 'Ολοκληρώθηκε',
-                
-                // Wealth
-                totalAssets: 'Συνολικά Περιουσιακά Στοιχεία',
-                todayProfit: 'Σημερινό Κέρδος',
-                availableBalance: 'Διαθέσιμο Υπόλοιπο',
-                investmentReturn: 'Επενδυτική Απόδοση',
-                frozenFunds: 'Παγωμένα Κεφάλαια',
-                pendingSettlement: 'Εκκρεμής Διακανονισμός',
-                
-                // Buttons
-                submit: 'Υποβολή',
-                close: 'Κλείσιμο',
-                cancel: 'Ακύρωση',
-                confirm: 'Επιβεβαίωση',
-                copy: 'Αντιγραφή',
-                share: 'Κοινοποίηση',
-                
-                // Forms
-                username: 'Όνομα Χρήστη',
-                password: 'Κωδικός Πρόσβασης',
-                confirmPassword: 'Επιβεβαίωση Κωδικού',
-                email: 'Ηλεκτρονικό Ταχυδρομείο',
-                referralCode: 'Κωδικός Παραπομπής',
-                optional: 'προαιρετικό',
-                required: 'απαιτείται',
-                
-                // Messages
-                loginSuccess: 'Επιτυχής σύνδεση!',
-                registerSuccess: 'Επιτυχής εγγραφή!',
-                taskSubmitted: 'Η εργασία υποβλήθηκε επιτυχώς!',
-                copied: 'Αντιγράφηκε στο πρόχειρο!',
-                languageChanged: 'Η γλώσσα άλλαξε σε Ελληνικά'
-            }
-        };
-
-        function updateLanguage(lang) {
-            currentLanguage = lang;
-            const t = translations[lang];
-            
-            // Update navigation elements
-            const loginOptions = document.querySelectorAll('#loginOptions button');
-            if (loginOptions && loginOptions.length >= 2) {
-                loginOptions[0].textContent = t.loginAccount;
-                loginOptions[1].textContent = t.registerAccount;
-            }
-            
-            const userOptions = document.querySelectorAll('#userOptions button');
-            if (userOptions && userOptions.length >= 4) {
-                userOptions[0].textContent = t.personalCenter;
-                userOptions[1].textContent = t.myWealth;
-                userOptions[2].textContent = t.accountSettings;
-                userOptions[3].textContent = t.logout;
-            }
-            
-            // Update hero section - use correct selectors
-            const heroTitle = document.querySelector('h1.responsive-title');
-            const heroSubtitle = document.querySelector('p.responsive-subtitle');
-            if (heroTitle) heroTitle.textContent = t.heroTitle;
-            if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
-            
-            // Update main action buttons - use safer selectors
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(btn => {
-                if (btn.onclick && btn.onclick.toString().includes('showSection(\'tasks\')')) {
-                    btn.textContent = t.startExperience;
-                } else if (btn.onclick && btn.onclick.toString().includes('window.open(\'https://direct.lc.chat')) {
-                    if (btn.textContent.includes('存款') || btn.textContent.includes('Κατάθεση')) {
-                        btn.textContent = t.deposit;
-                    }
-                } else if (btn.onclick && btn.onclick.toString().includes('openWithdrawModal')) {
-                    btn.textContent = t.withdraw;
-                }
-            });
-            
-            // Update service button
-            const serviceBtn = document.querySelector('button span');
-            if (serviceBtn && (serviceBtn.textContent.includes('在线客服') || serviceBtn.textContent.includes('Διαδικτυακή'))) {
-                serviceBtn.textContent = t.onlineService;
-            }
-            
-            // Update platform economy section
-            const economyTitles = document.querySelectorAll('h2');
-            economyTitles.forEach(title => {
-                if (title && (title.textContent.includes('平台') || title.textContent.includes('Πλατφόρμας'))) {
-                    title.textContent = t.platformEconomy;
-                }
-            });
-            
-            // Update feature cards - be more specific
-            const homeSection = document.getElementById('home');
-            if (homeSection) {
-                const featureCards = homeSection.querySelectorAll('.quantum-card h3');
-                if (featureCards && featureCards.length >= 3) {
-                    featureCards[0].textContent = t.trafficMonetization;
-                    featureCards[1].textContent = t.promotionCommission;
-                    featureCards[2].textContent = t.smartMatching;
-                }
-                
-                const featureDescs = homeSection.querySelectorAll('.quantum-card p.responsive-text');
-                if (featureDescs && featureDescs.length >= 3) {
-                    featureDescs[0].textContent = t.trafficDesc;
-                    featureDescs[1].textContent = t.promotionDesc;
-                    featureDescs[2].textContent = t.smartDesc;
-                }
-            }
-            
-            // Update bottom navigation
-            const bottomNavButtons = document.querySelectorAll('.bottom-nav-btn span');
-            if (bottomNavButtons && bottomNavButtons.length >= 4) {
-                bottomNavButtons[0].textContent = t.home;
-                bottomNavButtons[1].textContent = t.taskCenter;
-                bottomNavButtons[2].textContent = t.wealthCenter;
-                bottomNavButtons[3].textContent = t.profile;
-            }
-            
-            // Update section titles
-            const profileTitle = document.querySelector('#profile h2');
-            const tasksTitle = document.querySelector('#tasks h2');
-            const wealthTitle = document.querySelector('#wealth h2');
-            
-            if (profileTitle) profileTitle.textContent = t.personalCenter;
-            if (tasksTitle) tasksTitle.textContent = t.taskCenter;
-            if (wealthTitle) wealthTitle.textContent = t.wealthCenter;
-            
-            // Update task stats - be more specific
-            const tasksSection = document.getElementById('tasks');
-            if (tasksSection) {
-                const taskStats = tasksSection.querySelectorAll('.quantum-card .text-gray-400');
-                if (taskStats && taskStats.length >= 3) {
-                    // Find the stats cards specifically
-                    const statsCards = tasksSection.querySelectorAll('.grid.md\\:grid-cols-3 .quantum-card .text-gray-400');
-                    if (statsCards && statsCards.length >= 3) {
-                        statsCards[0].textContent = t.todayTasks;
-                        statsCards[1].textContent = t.completedTasks;
-                        statsCards[2].textContent = t.todayEarnings;
-                    }
-                }
-                
-                // Update task progress button
-                const taskProgressBtn = tasksSection.querySelector('[onclick="openTaskProgressModal()"]');
-                if (taskProgressBtn) {
-                    taskProgressBtn.innerHTML = `📊 ${t.taskProgress}`;
-                }
-                
-                // Update task items
-                const taskTitles = tasksSection.querySelectorAll('.space-y-6 .quantum-card h4');
-                const taskDescs = tasksSection.querySelectorAll('.space-y-6 .quantum-card .text-gray-400.text-sm');
-                
-                if (taskTitles && taskTitles.length >= 4) {
-                    taskTitles[0].textContent = t.mallPromotion;
-                    taskTitles[1].textContent = t.investmentExp;
-                    taskTitles[2].textContent = t.dailyCheckin;
-                    taskTitles[3].textContent = t.inviteFriends;
-                }
-                
-                if (taskDescs && taskDescs.length >= 4) {
-                    taskDescs[0].textContent = t.mallPromotionDesc;
-                    taskDescs[1].textContent = t.investmentDesc;
-                    taskDescs[2].textContent = t.checkinDesc;
-                    taskDescs[3].textContent = t.inviteDesc;
-                }
-            }
-            
-            // Update wealth section
-            const wealthSection = document.getElementById('wealth');
-            if (wealthSection) {
-                const wealthStats = wealthSection.querySelectorAll('.text-gray-400.text-sm');
-                if (wealthStats && wealthStats.length >= 4) {
-                    // Find the specific stats in the grid
-                    const statsGrid = wealthSection.querySelector('.grid.md\\:grid-cols-4');
-                    if (statsGrid) {
-                        const statLabels = statsGrid.querySelectorAll('.text-gray-400.text-sm');
-                        if (statLabels && statLabels.length >= 4) {
-                            statLabels[0].textContent = t.availableBalance;
-                            statLabels[1].textContent = t.investmentReturn;
-                            statLabels[2].textContent = t.frozenFunds;
-                            statLabels[3].textContent = t.pendingSettlement;
-                        }
-                    }
-                }
-                
-                const totalAssetsTitle = wealthSection.querySelector('h3');
-                if (totalAssetsTitle && (totalAssetsTitle.textContent.includes('总资产') || totalAssetsTitle.textContent.includes('Περιουσιακά'))) {
-                    totalAssetsTitle.textContent = t.totalAssets;
-                }
-                
-                const todayProfitText = wealthSection.querySelector('.text-green-400.text-lg');
-                if (todayProfitText) {
-                    const amount = todayProfitText.textContent.match(/[\d,]+\.?\d*/);
-                    if (amount) {
-                        todayProfitText.textContent = `+¥${amount[0]} (+2.05%) ${t.todayProfit}`;
-                    }
-                }
-            }
-        }
-
-        // Language change function
-        function changeLanguage(lang) {
-            updateLanguage(lang);
-            const t = translations[lang] || translations['zh'];
-            alert(t.languageChanged);
-        }
-
-        // User control functions
-        let isLoggedIn = false;
-        let currentUser = {
-            username: '张三',
-            level: 'VIP会员'
-        };
-
-        function toggleUserMenu() {
-            const dropdown = document.getElementById('userDropdown');
-            dropdown.classList.toggle('hidden');
-        }
-
-        function showUserProfile() {
-            showSection('profile');
-            closeUserMenu();
-        }
-
-        function showLogin() {
-            // Simulate login process
-            const t = translations[currentLanguage];
-            if (confirm('模拟登录：点击确定登录为张三')) {
-                isLoggedIn = true;
-                updateUserStatus();
-                alert(t.loginSuccess + '欢迎回来，' + currentUser.username);
-            }
-            closeUserMenu();
-        }
-
-        function showRegister() {
-            document.getElementById('registerModal').classList.remove('hidden');
-            document.getElementById('registerModal').classList.add('flex');
-            closeUserMenu();
-        }
-
-        function showAccountSettings() {
-            alert('账户设置功能开发中，敬请期待！');
-            closeUserMenu();
-        }
-
-        function logout() {
-            if (confirm('确定要退出登录吗？')) {
-                isLoggedIn = false;
-                updateUserStatus();
-                alert('已成功退出登录');
-                showSection('home');
-            }
-            closeUserMenu();
-        }
-
-        function closeUserMenu() {
-            document.getElementById('userDropdown').classList.add('hidden');
-        }
-
-        function updateUserStatus() {
-            const statusText = document.getElementById('userStatusText');
-            const loginOptions = document.getElementById('loginOptions');
-            const userOptions = document.getElementById('userOptions');
-            const displayUsername = document.getElementById('displayUsername');
-
-            if (isLoggedIn) {
-                statusText.textContent = currentUser.username;
-                loginOptions.classList.add('hidden');
-                userOptions.classList.remove('hidden');
-                displayUsername.textContent = currentUser.username;
-            } else {
-                statusText.textContent = '登录';
-                loginOptions.classList.remove('hidden');
-                userOptions.classList.add('hidden');
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const userMenu = event.target.closest('.relative');
-            const dropdown = document.getElementById('userDropdown');
-            
-            if (!userMenu && dropdown && !dropdown.classList.contains('hidden')) {
-                closeUserMenu();
-            }
-        });
-
-        // Registration modal functions
-        function closeRegisterModal() {
-            document.getElementById('registerModal').classList.add('hidden');
-            document.getElementById('registerModal').classList.remove('flex');
-        }
-
-        function submitRegistration() {
-            const username = document.getElementById('regUsername').value;
-            const idType = document.getElementById('regIdType').value;
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
-            const email = document.getElementById('regEmail').value;
-            const referralCode = document.getElementById('regReferralCode').value;
-
-            if (!username || !idType || !password || !email) {
-                alert('请填写所有必填项！');
-                return;
-            }
-
-            if (password !== confirmPassword) {
-                alert('两次输入的密码不一致！');
-                return;
-            }
-
-            if (password.length < 6) {
-                alert('密码长度不能少于6位！');
-                return;
-            }
-
-            const t = translations[currentLanguage];
-            alert(`${t.registerSuccess}欢迎加入全球买家金融平台，${username}！`);
-            closeRegisterModal();
-        }
-
-        // Mall promotion modal functions
-        function openMallPromotionModal() {
-            // Generate new task number
-            const taskNumber = 'MP' + new Date().getFullYear() + 
-                              String(new Date().getMonth() + 1).padStart(2, '0') + 
-                              String(new Date().getDate()).padStart(2, '0') + 
-                              String(Math.floor(Math.random() * 1000)).padStart(3, '0');
-            document.getElementById('taskNumber').value = taskNumber;
-            
-            document.getElementById('mallPromotionModal').classList.remove('hidden');
-            document.getElementById('mallPromotionModal').classList.add('flex');
-        }
-
-        function closeMallPromotionModal() {
-            document.getElementById('mallPromotionModal').classList.add('hidden');
-            document.getElementById('mallPromotionModal').classList.remove('flex');
-        }
-
-        function submitMallPromotion() {
-            const mallName = document.getElementById('mallName').value;
-            const productName = document.getElementById('productName').value;
-            const productPrice = document.getElementById('productPrice').value;
-            const promotionIndex = document.getElementById('promotionIndex').value;
-            const purchaseProof = document.getElementById('purchaseProof').files[0];
-
-            if (!mallName || !productName || !productPrice || !promotionIndex || !purchaseProof) {
-                alert('请填写所有必填项并上传购买凭证！');
-                return;
-            }
-
-            if (productPrice <= 0) {
-                alert('商品价格必须大于0！');
-                return;
-            }
-
-            // Calculate reward based on promotion index
-            const rewards = { '1': 50, '2': 80, '3': 120, '4': 150, '5': 200 };
-            const reward = rewards[promotionIndex];
-
-            alert(`任务提交成功！\n任务编号：${document.getElementById('taskNumber').value}\n预期奖励：¥${reward}\n\n任务已进入审核队列，请耐心等待系统审核。审核通过后将自动发放奖励到您的账户。`);
-            
-            // Update task stats (simulate)
-            updateTaskStats();
-            closeMallPromotionModal();
-        }
-
-        // Task progress modal functions
-        function openTaskProgressModal() {
-            document.getElementById('taskProgressModal').classList.remove('hidden');
-            document.getElementById('taskProgressModal').classList.add('flex');
-        }
-
-        function closeTaskProgressModal() {
-            document.getElementById('taskProgressModal').classList.add('hidden');
-            document.getElementById('taskProgressModal').classList.remove('flex');
-        }
-
-        // Referral modal functions
-        function openReferralModal() {
-            document.getElementById('referralModal').classList.remove('hidden');
-            document.getElementById('referralModal').classList.add('flex');
-        }
-
-        function closeReferralModal() {
-            document.getElementById('referralModal').classList.add('hidden');
-            document.getElementById('referralModal').classList.remove('flex');
-        }
-
-        function copyReferralCode() {
-            const referralCode = document.getElementById('referralCode').value;
-            const t = translations[currentLanguage];
-            navigator.clipboard.writeText(referralCode).then(() => {
-                alert('邀请码' + t.copied);
-            });
-        }
-
-        function copyReferralLink() {
-            const referralLink = document.getElementById('referralLink').value;
-            const t = translations[currentLanguage];
-            navigator.clipboard.writeText(referralLink).then(() => {
-                alert('邀请链接' + t.copied);
-            });
-        }
-
-        function shareReferral() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '全球买家金融 - 邀请注册',
-                    text: '加入全球买家金融平台，开启您的财富之旅！',
-                    url: document.getElementById('referralLink').value
-                });
-            } else {
-                copyReferralLink();
-            }
-        }
-
-        // Update task statistics
-        function updateTaskStats() {
-            // This would normally update from server data
-            // For demo purposes, we'll just show a success message
-            setTimeout(() => {
-                alert('任务统计已更新！今日收益增加中...');
-            }, 1000);
-        }
-
-        // Initialize particles animation
-        function createParticles() {
-            const container = document.querySelector('.floating-particles');
-            setInterval(() => {
-                if (container.children.length < 15) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = '0s';
-                    particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                    container.appendChild(particle);
-                    
-                    setTimeout(() => {
-                        if (particle.parentNode) {
-                            particle.parentNode.removeChild(particle);
-                        }
-                    }, 6000);
-                }
-            }, 500);
-        }
-
-        // Start animations when page loads
-        window.addEventListener('load', () => {
-            createParticles();
-        });
-
-        // Handle responsive navigation
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (mobileMenu) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
-
-        // Initialize page when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ensure all elements are loaded before running any functions
-            setTimeout(() => {
-                // Initialize user status
-                updateUserStatus();
-                
-                // Set default language
-                if (currentLanguage !== 'zh') {
-                    updateLanguage('zh');
-                }
-            }, 100);
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97dcf48f50c03187',t:'MTc1NzY1NDQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <!-- JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/components/user-menu.js"></script>
+    <script src="js/components/loan-calculator.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/modals.js"></script>
+    <script src="js/pages/home.js"></script>
+    <script src="js/pages/credit.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
