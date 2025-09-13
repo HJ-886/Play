@@ -1,0 +1,30 @@
+/* 动画效果 */
+.pulse-ring {
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+    100% { transform: scale(0.8); opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.logo-carousel {
+    animation: logoScroll 20s linear infinite;
+    display: flex;
+    gap: 2rem;
+}
+
+@keyframes logoScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
